@@ -10,6 +10,5 @@ my_all: priv/ua_classifier_drv.so all
 include erlang.mk
 
 priv/ua_classifier_drv.so:
-	export ERL_PATH=`./erlang_path.escript`
 	mkdir -p priv
-	gcc -fPIC -shared -o priv/ua_classifier_drv.so c_src/ua_classifier_nif.c -I $(ERL_PATH)
+	./compile_nif.escript priv/ua_classifier_drv.so c_src/ua_classifier_nif.c
